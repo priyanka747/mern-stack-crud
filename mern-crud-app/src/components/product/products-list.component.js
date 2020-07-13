@@ -4,25 +4,12 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link, Switch, useHistory } from "react-router-dom";
-import jwt_decode from 'jwt-decode'
+
 // import {browserHistory} from "react-router";
 
 // eslint-disable-next-line
 import axios from 'axios';
-// const Hist=props=>{
-//     // let history = useHistory();
-//     function handleClick() {
-//         // browserHistory.push("/products/add");
 
-//         // forceUpdate();
-//       }
-//       return (
-
-//         // <button type="button" onClick={handleClick}>
-//         //   Go home
-//         // </button>
-//       );
-// }
 const Product = props => (
     <tr>
         <td>{props.index}</td>
@@ -58,7 +45,7 @@ export default class ProductList extends Component {
     componentDidMount() {
         const token = localStorage.getItem('usertoken');
         if (token) {
-            const decode = jwt_decode(token);
+            // const decode = jwt_decode(token);
             // console.log(decode);
         }
         if (!token) {

@@ -3,7 +3,7 @@ const app=express();
 const bodyParser=require('body-parser');
 const cors=require('cors');
 require('dotenv').config();
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 4000;
 const DB_URI=process.env.DB_URI + process.env.DB_NAME || 'mongodb://127.0.0.1:27017/mern-crud-app';
 const mongoose=require('mongoose');
 
@@ -29,7 +29,7 @@ app.use('/api/products', productRoutes);
 // serve static assets if in production
 if(process.env.APP_ENV === 'production'){
     app.use(express.static('mern-crud-app/build'))
-    app.get('*',(req,res)=>{
+    app.get('/',(req,res)=>{
         res.sendFile(path.resolve(__dirname,'mern-crud-app','build', 'index.html'))
     });
 }

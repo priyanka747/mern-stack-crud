@@ -8,7 +8,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
     const Customer = props =>(
        
         <tr>
@@ -42,7 +42,7 @@ export default class CustomerList extends Component {
         componentDidMount() {
             const token = localStorage.getItem('usertoken');
             if (token) {
-                const decode = jwt_decode(token);
+                // const decode = jwt_decode(token);
                 // console.log(decode);
             }
             if (!token) {
