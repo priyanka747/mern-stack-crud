@@ -30,7 +30,7 @@ router.route('/register').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/login').post((req, res) => {
-    console.log(req.header.host);
+    // console.log(req.header.host);
     User.findOne({
         email: req.body.email
     })
