@@ -32,7 +32,7 @@ export default class CustomerList extends Component {
             };
         }
         loadCustomers() {
-            axios.get('http://mern-stack-crud-app.herokuapp.com/api/customers/')
+            axios.get('https://mern-stack-crud-app.herokuapp.com/api/customers/')
             .then(res =>{
                 this.setState({
                     customers:res.data
