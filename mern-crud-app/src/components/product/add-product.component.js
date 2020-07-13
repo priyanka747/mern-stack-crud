@@ -99,7 +99,7 @@ export default class AddProduct extends Component {
                 product_price: this.state.product_price,
                 date_create: moment().format("DD-MM-YYYY hh:mm:ss")
             }
-            axios.post('http://localhost:4000/products/', newProduct)
+            axios.post('http://localhost:5000/products/', newProduct)
             .then(res =>console.log(res.data));
             console.log("form submited ");
             this.props.history.push("/products");

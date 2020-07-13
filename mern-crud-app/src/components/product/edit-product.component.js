@@ -33,7 +33,7 @@ export default class EditProduct extends Component {
         if (!token) {
            this.props.history.push('/');
         }
-        axios.get('http://localhost:4000/products/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/products/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     errors: {
@@ -113,7 +113,7 @@ export default class EditProduct extends Component {
                 date_create: moment().format("DD-MM-YYYY hh:mm:ss")
             }
             console.log(newProduct);
-            axios.post('http://localhost:4000/products/'+ this.props.match.params.id, newProduct)
+            axios.post('http://localhost:5000/products/'+ this.props.match.params.id, newProduct)
                 .then(res => console.log(res.data));
             console.log("form submited "); 
             this.props.history.push("/products");

@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import jwt_decode from 'jwt-decode'
     const Customer = props =>(
@@ -33,7 +32,7 @@ export default class CustomerList extends Component {
             };
         }
         loadCustomers() {
-            axios.get('http://localhost:4000/customers/')
+            axios.get('http://localhost:5000/customers/')
             .then(res =>{
                 this.setState({
                     customers:res.data
