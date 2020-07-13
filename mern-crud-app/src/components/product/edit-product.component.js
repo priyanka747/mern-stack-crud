@@ -28,12 +28,12 @@ export default class EditProduct extends Component {
         const token = localStorage.getItem('usertoken');
         if (token) {
             const decode = jwt_decode(token);
-            console.log(decode);
+            // console.log(decode);
         }
         if (!token) {
            this.props.history.push('/');
         }
-        axios.get('http://localhost:5000/products/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/api/products/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     errors: {
@@ -47,7 +47,7 @@ export default class EditProduct extends Component {
                     product_price: res.data.product_price,
                     date_create: res.data.date_create
                 });
-                console.log(this.state);
+                // console.log(this.state);
             }
             ).catch(err => console.log(err))
     }
@@ -98,24 +98,24 @@ export default class EditProduct extends Component {
                 submit: ((this.state.errors.price.length > 0) || (this.state.errors.name.length > 0) || (this.state.errors.desc.length > 0)) ? "Enter valid information" : ""
             }
         });
-        console.log(this.state);
-        console.log((this.state.product_price > 0) && (this.state.product_name.length > 0) && (this.state.product_price.length > 0));
+        // console.log(this.state);
+        // console.log((this.state.product_price > 0) && (this.state.product_name.length > 0) && (this.state.product_price.length > 0));
         if ((this.state.errors.price.length > 0) || (this.state.errors.name.length > 0) || (this.state.errors.desc.length > 0)) {
            
-            console.log(this.state.errors);
+            // console.log(this.state.errors);
         } else if (this.state.product_price > 0 && this.state.product_name.length > 0 && this.state.product_description.length > 0) {
             
-            console.log(this.state);
+            // console.log(this.state);
             const newProduct = {
                 product_name: this.state.product_name,
                 product_description: this.state.product_description,
                 product_price: this.state.product_price,
                 date_create: moment().format("DD-MM-YYYY hh:mm:ss")
             }
-            console.log(newProduct);
-            axios.post('http://localhost:5000/products/'+ this.props.match.params.id, newProduct)
+            // console.log(newProduct);
+            axios.post('http://localhost:5000/api/products/'+ this.props.match.params.id, newProduct)
                 .then(res => console.log(res.data));
-            console.log("form submited "); 
+            // console.log("form submited "); 
             this.props.history.push("/products");
             this.setState({
                 errors: {

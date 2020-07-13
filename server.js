@@ -11,6 +11,7 @@ const mongoose=require('mongoose');
 const customerRoutes =require('./routes/customers');// express.Router();
 const userRoutes =require('./routes/users');
 const productRoutes =require('./routes/products');
+const path = require('path');
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -21,12 +22,16 @@ connection.once('open',function(){
     console.log("database connected successfully");
 });
 //using routes
-app.use('/customers', customerRoutes);
-app.use('/users', userRoutes);
-app.use('/products', productRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 
+// serve static assets if in production
 if(process.env.APP_ENV === 'production'){
-    app.use(express.static('/mern-crud-app/build'))
+    app.use(express.static('mern-crud-app/build'))
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'mern-crud-app','build', 'index.html'))
+    });
 }
 
 //app starts here

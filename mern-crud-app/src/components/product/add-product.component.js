@@ -30,7 +30,7 @@ export default class AddProduct extends Component {
         const token = localStorage.getItem('usertoken');
         if (token) {
             const decode = jwt_decode(token);
-            console.log(decode);
+            // console.log(decode);
         }
         if (!token) {
            this.props.history.push('/');
@@ -84,24 +84,24 @@ export default class AddProduct extends Component {
             }
         });
         if ((this.state.errors.price.length > 0) || (this.state.errors.name.length > 0) || (this.state.errors.desc.length > 0)) {
-            console.log(this.state.product_name);
-            console.log(this.state.product_description);
-            console.log(this.state.product_price);
-            console.log(this.state.date_created);
+            // console.log(this.state.product_name);
+            // console.log(this.state.product_description);
+            // console.log(this.state.product_price);
+            // console.log(this.state.date_created);
         } else if ((this.state.product_price.length > 0 && this.state.product_price>0) && (this.state.product_name.length > 0) && (this.state.product_price.length > 0))  {
-            console.log(this.state.product_name);
-            console.log(this.state.product_description);
-            console.log(this.state.product_price);
-            console.log(this.state.date_created);
+            // console.log(this.state.product_name);
+            // console.log(this.state.product_description);
+            // console.log(this.state.product_price);
+            // console.log(this.state.date_created);
             const newProduct={
                 product_name: this.state.product_name,
                 product_description: this.state.product_description,
                 product_price: this.state.product_price,
                 date_create: moment().format("DD-MM-YYYY hh:mm:ss")
             }
-            axios.post('http://localhost:5000/products/', newProduct)
+            axios.post('http://localhost:5000/api/products/', newProduct)
             .then(res =>console.log(res.data));
-            console.log("form submited ");
+            // console.log("form submited ");
             this.props.history.push("/products");
              this.setState({
             errors: {

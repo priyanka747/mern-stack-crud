@@ -21,12 +21,12 @@ export default class EditCustomer extends Component {
         const token = localStorage.getItem('usertoken');
         if (token) {
             const decode = jwt_decode(token);
-            console.log(decode);
+            // console.log(decode);
         }
         if (!token) {
            this.props.history.push('/');
         }
-        axios.get('http://localhost:5000/customers/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/api/customers/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     errors: {
@@ -42,14 +42,14 @@ export default class EditCustomer extends Component {
                     cust_address: res.data.cust_address,
                     approved: res.data.approved
                 });
-                console.log(this.state);
+                // console.log(this.state);
             }
             ).catch(err => console.log(err))
     }
     onCustApprovedChanged(e) {
        
         this.setState({ approved: !this.state.approved });
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     onSubmit(e) {
@@ -61,8 +61,8 @@ export default class EditCustomer extends Component {
                 cust_address: this.state.cust_address,
                 approved: this.state.approved
             }
-            console.log(newCustomer);
-            axios.post('http://localhost:5000/customers/' + this.props.match.params.id, newCustomer)
+            // console.log(newCustomer);
+            axios.post('http://localhost:5000/api/customers/' + this.props.match.params.id, newCustomer)
                 .then(res => console.log(res.data));
             this.props.history.push("/customers");
             this.setState({

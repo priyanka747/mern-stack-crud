@@ -32,7 +32,7 @@ export default class CustomerList extends Component {
             };
         }
         loadCustomers() {
-            axios.get('http://localhost:5000/customers/')
+            axios.get('http://localhost:5000/api/customers/')
             .then(res =>{
                 this.setState({
                     customers:res.data
@@ -43,7 +43,7 @@ export default class CustomerList extends Component {
             const token = localStorage.getItem('usertoken');
             if (token) {
                 const decode = jwt_decode(token);
-                console.log(decode);
+                // console.log(decode);
             }
             if (!token) {
                this.props.history.push('/');
@@ -55,7 +55,7 @@ export default class CustomerList extends Component {
         }
       
         customerList(){
-            console.log(this.state.customers);
+            // console.log(this.state.customers);
             return this.state.customers.map(function(customer,i){
                 return <Customer customer={customer} key={i}/>
     

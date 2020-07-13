@@ -24,8 +24,8 @@ export default class UserLogin extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        console.log(User);
-        axios.post('http://localhost:5000/users/login', User)
+        // console.log(User);
+        axios.post('http://localhost:5000/api/users/login', User)
             .then(res => {
                 localStorage.setItem('usertoken', res.data)
                 // return res.data

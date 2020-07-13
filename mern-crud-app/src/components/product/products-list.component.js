@@ -48,7 +48,7 @@ export default class ProductList extends Component {
 
     }
     loadproducts() {
-        axios.get('http://localhost:5000/products/')
+        axios.get('http://localhost:5000/api/products/')
             .then(res => {
                 this.setState({
                     products: res.data.reverse()
@@ -59,7 +59,7 @@ export default class ProductList extends Component {
         const token = localStorage.getItem('usertoken');
         if (token) {
             const decode = jwt_decode(token);
-            console.log(decode);
+            // console.log(decode);
         }
         if (!token) {
            this.props.history.push('/');
