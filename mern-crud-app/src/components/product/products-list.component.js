@@ -35,7 +35,7 @@ export default class ProductList extends Component {
 
     }
     loadproducts() {
-        axios.get('http://localhost:5000/api/products/')
+        axios.get('http://mern-stack-crud-app.herokuapp.com/api/products/')
             .then(res => {
                 this.setState({
                     products: res.data.reverse()

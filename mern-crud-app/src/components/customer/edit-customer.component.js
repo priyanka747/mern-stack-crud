@@ -26,7 +26,7 @@ export default class EditCustomer extends Component {
         if (!token) {
            this.props.history.push('/');
         }
-        axios.get('http://localhost:5000/api/customers/' + this.props.match.params.id)
+        axios.get('http://mern-stack-crud-app.herokuapp.com/api/customers/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     errors: {
@@ -62,7 +62,7 @@ export default class EditCustomer extends Component {
                 approved: this.state.approved
             }
             // console.log(newCustomer);
-            axios.post('http://localhost:5000/api/customers/' + this.props.match.params.id, newCustomer)
+            axios.post('http://mern-stack-crud-app.herokuapp.com/api/customers/' + this.props.match.params.id, newCustomer)
                 .then(res => console.log(res.data));
             this.props.history.push("/customers");
             this.setState({
