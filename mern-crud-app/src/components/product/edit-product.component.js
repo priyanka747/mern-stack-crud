@@ -3,7 +3,7 @@ import moment from "moment";
 import axios from 'axios';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
 export default class EditProduct extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ export default class EditProduct extends Component {
     componentDidMount() {
         const token = localStorage.getItem('usertoken');
         if (token) {
-            const decode = jwt_decode(token);
+            // const decode = jwt_decode(token);
             // console.log(decode);
         }
         if (!token) {

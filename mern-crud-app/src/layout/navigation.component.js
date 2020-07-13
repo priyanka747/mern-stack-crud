@@ -23,7 +23,7 @@ class Navigation extends Component {
                  
                   <li className="nav-item"><NavLink exact to="/customers" className="nav-link">Customers</NavLink> </li>
                   <li className="nav-item"><NavLink exact to="/products" className="nav-link">Products</NavLink> </li>
-                  <li className="nav-item"><a  href="" onClick={this.logOut.bind(this)} className="nav-link">logout </a> </li>
+                  <li className="nav-item"><button  onClick={this.logOut.bind(this)} className="btn btn-link nav-link">logout </button> </li>
                 </ul>
       )
         return (  
