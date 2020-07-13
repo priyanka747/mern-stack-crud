@@ -4,7 +4,7 @@ const bodyParser=require('body-parser');
 const cors=require('cors');
 require('dotenv').config();
 const PORT=process.env.PORT || 4000;
-const DB_URI=process.env.DB_URI || 'mongodb://127.0.0.1:27017/mern-crud-app';
+const DB_URI=process.env.MLAB_URI || 'mongodb://127.0.0.1:27017/mern-crud-app';
 const mongoose=require('mongoose');
 
 //importing routes
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 mongoose.connect(DB_URI,{ useNewUrlParser:true, useCreateIndex: true });
 connection=mongoose.connection;
 connection.once('open',function(){
-    console.log("database connected successfully");
+    console.log("database connected successfully"+DB_URI);
 });
 //using routes
 app.use('/api/customers', customerRoutes);
