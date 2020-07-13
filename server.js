@@ -4,7 +4,7 @@ const bodyParser=require('body-parser');
 const cors=require('cors');
 require('dotenv').config();
 const PORT=process.env.PORT || 4000;
-const DB_URI=process.env.DB_URI + process.env.DB_NAME || 'mongodb://127.0.0.1:27017/mern-crud-app';
+const DB_URI=process.env.DB_URI || 'mongodb://127.0.0.1:27017/mern-crud-app';
 const mongoose=require('mongoose');
 
 //importing routes
