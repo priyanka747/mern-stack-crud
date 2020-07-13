@@ -29,7 +29,10 @@ app.use('/api/products', productRoutes);
 // serve static assets if in production
 if(process.env.APP_ENV === 'production'){
     app.use(express.static('mern-crud-app/build'))
-    app.get('/',(req,res)=>{
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'mern-crud-app','build', 'index.html'))
+    });
+    app.post('*',(req,res)=>{
         res.sendFile(path.resolve(__dirname,'mern-crud-app','build', 'index.html'))
     });
 }
